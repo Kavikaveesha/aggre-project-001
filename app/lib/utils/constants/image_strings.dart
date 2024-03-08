@@ -1,10 +1,12 @@
 import 'package:flutter/material.dart';
 
 class TImages {
-  static const String splashImg1 =
-      "assets/images/splash_screen_images/splashImg1.png";
-  static const String splashImg2 =
-      "assets/images/splash_screen_images/splashImg2.png";
+  static const String p1 = "assets/products/p1.jpeg";
 
+  static const String p2 = "assets/products/p2.jpeg";
+  static const String p3 = "assets/products/p3.jpeg";
+
+  // button images
+  static const String btnImg1 = "assets/button_images/btnImg1.jpg";
 
 }

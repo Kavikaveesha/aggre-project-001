@@ -1,4 +1,5 @@
 import 'package:app/features/shop/screens/home_screen/home_page.dart';
+import 'package:app/utils/constants/colors.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:iconsax/iconsax.dart';
@@ -13,6 +14,7 @@ class NavigationMenu extends StatelessWidget {
     return Scaffold(
       bottomNavigationBar: Obx(
         () => NavigationBar(
+          indicatorColor: TColors.appPrimaryColor,
           height: 80,
           elevation: 0,
           selectedIndex: controller.selectedIndex.value,
@@ -20,12 +22,12 @@ class NavigationMenu extends StatelessWidget {
               controller.selectedIndex.value = index,
           destinations: const [
             NavigationDestination(icon: Icon(Iconsax.home), label: 'Home'),
+            NavigationDestination(icon: Icon(Iconsax.shop), label: 'Market'),
+            NavigationDestination(
+                icon: Icon(Icons.miscellaneous_services_outlined),
+                label: 'Services'),
             NavigationDestination(
                 icon: Icon(Iconsax.notification), label: 'Notification'),
-            NavigationDestination(
-                icon: Icon(Iconsax.message), label: 'Message'),
-            //NavigationDestination(icon: Icon(Iconsax.), label: 'Message'),
-            NavigationDestination(icon: Icon(Iconsax.add), label: 'Post'),
           ],
         ),
       ),

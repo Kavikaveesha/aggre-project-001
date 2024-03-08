@@ -1,3 +1,4 @@
+import 'package:app/features/shop/screens/home_screen/home_page.dart';
 import 'package:flutter/material.dart';
 
 import 'navigation_menu.dart';
@@ -17,7 +18,7 @@ class App extends StatelessWidget {
       themeMode: ThemeMode.system,
       theme: TAppTheme.lightTheme,
       darkTheme: TAppTheme.darkTheme,
-      home: const NavigationMenu(),
+      home: NavigationMenu(),
     );
   }
 }

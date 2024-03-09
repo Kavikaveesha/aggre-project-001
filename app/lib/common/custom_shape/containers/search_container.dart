@@ -3,7 +3,8 @@ import 'package:get/get.dart';
 
 class SearchBarContainer extends StatefulWidget {
   final Widget resultPage;
-  const SearchBarContainer({Key? key, required this.resultPage})
+  final String text;
+  const SearchBarContainer({Key? key, required this.resultPage, required this.text})
       : super(key: key);
 
   @override
@@ -35,7 +36,7 @@ class _SearchBarState extends State<SearchBarContainer> {
         child: TextField(
           controller: _searchController,
           decoration: InputDecoration(
-            hintText: 'Search...',
+            hintText: widget.text,
             suffixIcon: IconButton(
               icon: const Icon(Icons.search),
               onPressed: _onSearchPressed,

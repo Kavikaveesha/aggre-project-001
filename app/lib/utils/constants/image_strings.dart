@@ -9,4 +9,7 @@ class TImages {
   // button images
   static const String btnImg1 = "assets/button_images/btnImg1.jpg";
 
+  // farmers images
+  static const String farmer1 = "assets/farmers/farmer1.jpeg";
+  static const String farmer2 = "assets/farmers/farmer2.jprg";
 }

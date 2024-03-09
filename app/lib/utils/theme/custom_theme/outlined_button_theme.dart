@@ -8,6 +8,8 @@ class TOutlinedButtonTheme {
 
   static final lightOutlinedButtonTheme = OutlinedButtonThemeData(
     style: OutlinedButton.styleFrom(
+        
+        elevation: 2,
         shape: const RoundedRectangleBorder(),
         foregroundColor: TColors.appSecondaryColor,
         side: const BorderSide(color: TColors.appSecondaryColor),
@@ -16,6 +18,7 @@ class TOutlinedButtonTheme {
 
   static final darkOutlinedButtonTheme = OutlinedButtonThemeData(
     style: OutlinedButton.styleFrom(
+        elevation: 2,
         shape: const RoundedRectangleBorder(),
         foregroundColor: Colors.white,
         side: const BorderSide(color: Colors.white),

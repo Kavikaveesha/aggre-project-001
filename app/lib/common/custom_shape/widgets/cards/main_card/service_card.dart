@@ -1,15 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
-class MainCard extends StatelessWidget {
-  const MainCard(
+class ServiceCard extends StatelessWidget {
+  const ServiceCard(
       {super.key,
-      required this.child,
       required this.x,
       required this.height,
       required this.imageName,
-      required this.title, required this.onTap});
-  final Widget child;
+      required this.title,
+      required this.onTap});
   final double x;
   final double height;
   final String imageName;
@@ -19,7 +18,7 @@ class MainCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return InkWell(
-      onTap:onTap,
+      onTap: onTap,
       child: Container(
         width: MediaQuery.of(context).size.width * x,
         height: height,
@@ -36,7 +35,24 @@ class MainCard extends StatelessWidget {
             ),
           ],
         ),
-        child: child
+        child: Column(
+          children: [
+            ClipOval(
+              child: Image.asset(
+                imageName,
+                width: 80.0,
+                height: 80.0,
+                fit: BoxFit.cover,
+              ),
+            ),
+            Text(
+              title,
+              style: Theme.of(context).textTheme.bodyLarge!.copyWith(
+                    fontWeight: FontWeight.bold,
+                  ),
+            ),
+          ],
+        ),
       ),
     );
   }

@@ -12,4 +12,7 @@ class TImages {
   // farmers images
   static const String farmer1 = "assets/farmers/farmer1.jpeg";
   static const String farmer2 = "assets/farmers/farmer2.jprg";
+
+  // Artical images
+  static const String artImg1 = "assets/artical_images/artImg1";
 }

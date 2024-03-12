@@ -3,7 +3,7 @@ import 'package:app/features/shop/screens/market/products/top_products/top_produ
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
-import '../../../../../utils/constants/colors.dart';
+import '../../../../../../utils/constants/colors.dart';
 
 class TopProducts extends StatelessWidget {
   const TopProducts({super.key});

@@ -1,6 +1,7 @@
 import 'package:app/features/shop/screens/coomunity/community_page.dart';
 import 'package:app/features/shop/screens/home_screen/home_page.dart';
 import 'package:app/features/shop/screens/market/market_page.dart';
+import 'package:app/features/shop/screens/notifications/notification_page.dart';
 import 'package:app/utils/constants/colors.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
@@ -45,6 +46,6 @@ class NavigationController extends GetxController {
     const HomePage(),
     const MarketPage(),
     const CommunityPage(),
-    Container(color: Colors.blue)
+    const NotificationPage()
   ];
 }

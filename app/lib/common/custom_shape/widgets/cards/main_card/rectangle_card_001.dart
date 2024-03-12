@@ -45,7 +45,7 @@ class RectangleCard extends StatelessWidget {
             Padding(
               padding: const EdgeInsets.symmetric(horizontal: 15, vertical: 15),
               child: Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                 children: [
                   Center(
                     child: Icon(

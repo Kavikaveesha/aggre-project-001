@@ -34,6 +34,7 @@ dependencies:
   flutter:
     sdk: flutter
 
+
     # utility packages
   http: ^1.1.0
   intl: ^0.18.1
@@ -48,6 +49,7 @@ dependencies:
   cupertino_icons: ^1.0.2
 
   #state Management
+
   get: ^4.6.5
   get_storage: ^2.1.1
   google_fonts: ^6.1.0
@@ -81,6 +83,8 @@ flutter:
     - assets/products/
     - assets/button_images/
     - assets/farmers/
+    - assets/farmers/
+    - assets/artical_images/
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware

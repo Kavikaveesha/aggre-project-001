@@ -1,6 +1,14 @@
-import 'package:flutter/material.dart';
 
 class TImages {
+ 
+  // button images
+
+  // Logo Icon
+  static const String ecoIcon = "assets/logo/eco.png";
+
+  // verify Images
+  static const String vryImg = "assets/images/verifyEmail.png";
+
   static const String p1 = "assets/products/p1.jpeg";
 
   static const String p2 = "assets/products/p2.jpeg";

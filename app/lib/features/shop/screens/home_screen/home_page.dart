@@ -46,19 +46,18 @@ class HomePage extends StatelessWidget {
                         text: 'Search......',
                       ),
                     ),
-                    SizedBox(height: mediaQueryHeight * 0.005),
                   ],
                 )),
-
+            SizedBox(height: mediaQueryHeight * 0.02),
             // Main Category buttons
             Padding(
               padding: const EdgeInsets.symmetric(horizontal: 25, vertical: 15),
               child: RectangleCard(
                 x: 1,
                 height: 100,
-                title: 'Visit To My Activities',
+                title: 'Visit To Market Place',
                 subtitle:
-                    'You can get idea about\nweekly reports of your growing',
+                    'You can Buy best Aggriculture\nproducts to your growing',
                 onTap: () {
                   Get.to(() => const MarketPage());
                 },

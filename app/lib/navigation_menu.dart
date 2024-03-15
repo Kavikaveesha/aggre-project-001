@@ -1,6 +1,5 @@
 import 'package:app/features/shop/screens/coomunity/community_page.dart';
 import 'package:app/features/shop/screens/home_screen/home_page.dart';
-import 'package:app/features/shop/screens/market/market_page.dart';
 import 'package:app/features/shop/screens/notifications/notification_page.dart';
 import 'package:app/utils/constants/colors.dart';
 import 'package:flutter/cupertino.dart';
@@ -26,11 +25,12 @@ class NavigationMenu extends StatelessWidget {
               controller.selectedIndex.value = index,
           destinations: const [
             NavigationDestination(icon: Icon(Iconsax.home), label: 'Home'),
-            NavigationDestination(icon: Icon(Iconsax.shop), label: 'Market'),
             NavigationDestination(
                 icon: Icon(Icons.group_add_outlined), label: 'Community'),
             NavigationDestination(
                 icon: Icon(Iconsax.notification), label: 'Notification'),
+            NavigationDestination(
+                icon: Icon(Icons.person_2_outlined), label: 'Profile'),
           ],
         ),
       ),
@@ -44,8 +44,8 @@ class NavigationController extends GetxController {
 
   final screens = [
     const HomePage(),
-    const MarketPage(),
     const CommunityPage(),
-    const NotificationPage()
+    const NotificationPage(),
+    const NotificationPage(),
   ];
 }

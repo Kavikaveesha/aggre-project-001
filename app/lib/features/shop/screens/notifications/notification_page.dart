@@ -24,7 +24,7 @@ class NotificationPage extends StatelessWidget {
               width: mediaQueryWidth,
               height: mediaQueryHeight * .8,
               child: ListView.builder(
-                itemCount: 5,
+                itemCount: 10,
                 itemBuilder: (context, index) {
                   return const Padding(
                     padding: EdgeInsets.symmetric(horizontal: 10, vertical: 10),

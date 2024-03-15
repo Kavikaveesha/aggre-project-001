@@ -1,104 +1,124 @@
-import 'package:flutter/material.dart';
+class EcoTexts {
+  // Bottom texts
+  static const String bttmHome = "Home";
+  static const String bttmServices = "Serveices";
+  static const String bttmNotification = "Notification";
+  static const String bttmProfile = "Profile";
 
-class TTexts {
-  // common text
-  static const String applogin = "Login";
-  static const String appRegister = "Register";
+  // splash screen texts
+  static const String splashHeader = "Gets things done with EcoNet";
+  static const String splashSubHeader =
+      "Growing a greener future, one click at a time. Welcome to EcoNet, where technology meets sustainability";
+  static const String splashbutton = "Get Started";
 
-// splash screen text
-  static const String appName = "Cunstruction Helper";
-  static const String splashScreenSubTitle1 = "We provide ";
-  static const String splashScreenSubTitle2 =
-      "the best platform for Cunstruction field ";
-  static const String developby = "Develop by TeamX ";
+  // Welcome Screen texts
+  static const String welcomeHeader = "Welcome !";
+  static const String welcomeFullName = "Enter Your Full Name ";
+  static const String welcomeFirstName = "First Name ";
+  static const String welcomeEmail = "Enter Your Email ";
+  static const String welcomePassword = "Enter Password";
+  static const String welcomeConfirmPassword = "Confirm Password";
+  static const String welcomeRegister = "Register";
+  static const String welcomeAlreadyAccount = "Already have an account ? ";
+  static const String welcomeSignIn = "Sign In";
 
-// onBoarding pages texts
-  static const String onBrdTitle1 = "Cunstruction Companies";
-  static const String onBrdSubTitle1 =
-      "You can find projects and hire employees for your companies";
-  static const String counterText1 = "1/4 ";
+  // Verification Screen texts
+  static const String vryHeader = "Great, now verify your email";
+  static const String vryInboxEmail =
+      "Check your inbox at test@gmail.com and enter the code here.";
+  static const String vryCheckEmail = "Don't see an email?";
+  static const String vryCheckEmail2 = "Check your spam folder";
+  static const String vryCode = "Code expired?";
+  static const String vryCode2 = "Resend verification email";
+  static const String vryBtn = "Registered";
 
-  static const String onBrdTitle2 = "Cunstruction Companies";
-  static const String onBrdSubTitle2 =
-      "You can find projects and hire employees for your companies";
-  static const String counterText2 = "2/4 ";
+  // Choose forgot password Method Screen
+  static const String cvmHeader =
+      "Choose your method and get code, Change the password ";
+  static const String cvmBtn1 = "Email";
+  static const String cvmBtn2 = "Phone number";
 
-  static const String onBrdTitle3 = "Cunstruction Companies";
-  static const String onBrdSubTitle3 =
-      "You can find projects and hire employees for your companies";
-  static const String counterText3 = "3/4";
+  // Method Email get password code
+  static const String megHeader = "Change the password through Email";
+  static const String megBtn1 = "Get code";
 
-  static const String onBrdTitle4 = "Cunstruction Projects";
-  static const String onBrdSubTitle4 =
-      "Customers man Find Cunstruction companies to handle their projects";
-  static const String counterText4 = "4/4 ";
+  // Email verify get code
+  static const String evgHeader = "Enter the code received in the email";
+  static const String evgBtn1 = "Success the get code";
 
-// welcome sceen texts
-  static const String wlcTitle = "Welcome to Construction Hub";
-  static const String wlcSubTitle =
-      "The Ultimate Platform for Seamless Connectivity Across the Construction Industry";
+  // Forgot Password Form
+  static const String fpfHeader = "Change your Password";
+  static const String fpfBtn1 = "Change";
 
-  // Global Texts
+  // Method phoneNumber get password code
+  static const String mpnHeader = "Change the password through Phone number";
+  static const String mpnBtn1 = "Get code";
 
-  // OnBoarding Texts
-  static const String onBoardingTitle1 = "Company ";
-  static const String onBoardingTitle2 = "Project ";
-  static const String onBoardingTitle3 = "Employee";
+  // Phone verify get code
+  static const String pvgHeader = "Enter the code received in the Phone number";
+  static const String pvgBtn1 = "Success the get code";
 
-  static const String onBoardingSubTitle1 =
-      "Welcome to the Find Best Company. You can choose our Company do the your project or join the our company as a Employee";
-  static const String onBoardingSubTitle2 =
-      "Welcome to the Project. You can Publish your project and You can find the Best Company do your project. ";
-  static const String onBoardingSubTitle3 =
-      "From our DoorStep to yours - Swift,Secure, and Contactless Delivery";
+  // Welcome Back Screen texts
+  static const String welbackHeader = "Welcome Back !";
+  static const String welbackEmail = "Enter Your Email";
+  static const String welbackPassword = "Enter Password";
+  static const String welbackForgotPassword = "Forgot Password";
+  static const String welbackSignIn = "Sign In";
+  static const String welbackDontHave = "Don't have an account ?";
+  static const String welbackSignUp = "Sign Up";
 
-  //  Authentication Form Text
-  static const String firstName = "First Name  ";
-  static const String lastName = "Last Name  ";
-  static const String email = "Email  ";
-  static const String password = "Password  ";
-  static const String newPassword = "New Password  ";
-  static const String username = "Username  ";
-  static const String phoneNo = "Phone Number  ";
-  static const String rememberMe = "Remember Me  ";
-  static const String forgetPassword = "Forget Password  ";
-  static const String signIn = "Sign In  ";
-  static const String createAccount = "Create Account  ";
-  static const String orSignInWith = "Or Sign In With  ";
-  static const String orSignUpWith = "Or Sign Up With  ";
-  static const String iAgreeTo = "I Agree To  ";
-  static const String and = "And  ";
-  static const String privacyPolicy = "Privacy Policy, ";
-  static const String termOfUse = "Terms Of Use  ";
-  static const String verificationCode = "Verification Code  ";
-  static const String resendEmail = "Resend Email  ";
-  static const String resendEmailIn = "Resend Email In ";
+  // Product Market Place Screen texts
+  static const String pmpHeader = "Product market place";
+  static const String pmpSearch = "Search Here...";
+  static const String pmpHeader2 = "Trending products";
 
-  // Authentication Heading Text
-  static const String loginTitle = "Welcome back";
-  static const String loginSubTitle =
-      "We Are the Top provider. We supply all the thing you need in your Hand";
-  static const String signupTitle = "Let's create your account";
-  static const String forgetPasswordTitle = "Forget Password";
-  static const String forgetPasswordSubTitle =
-      "Dont't worry, Enter your email and we will send you a password reset link";
-  static const String changeYourPasswordTitle = "Password Reset Email sent";
-  static const String changeYourPasswordSubTitle =
-      "Your account security is our priority! We've sent you a secure link to safely change your password and keep your account protected";
-  static const String confirmEmail = "Verify your Email Address";
-  static const String confirmEmailSubTitle =
-      "Congratulations! Your account awaits: Verify your email to again work";
-  static const String tContinue = "Continue";
-  static const String submit = "Submit";
-  static const String done = "Done";
-  static const String emailNotReceivedMessage =
-      "Didn't get the email? check your spam or resend it";
-  static const String yourAccountCreatedTitle =
-      "Your account successfully created";
-  static const String yourAccountCreatedSubTitle =
-      "Your account is created. Welcome to the Field. Let's work together and success our dreams";
+  // Eco Quest Screen texts
+  static const String eqHeader = "Eco Quest";
+  static const String eqEvents = "Events";
+  static const String eqCollaboration = "Collaboration";
+  static const String eqMarketplace = "Marketplace";
+  static const String eqGame = "Game";
+  static const String eqHeader2 = "Slide show of some images below";
 
-  // Home Title
-  static const String homeAppbarTitle = "Cunstruction Helper ";
-  static const String homeAppbarSubTitle = "Work Together and Nicely";
+  // Aqua Guard Screen texts
+  static const String agHeader = "Aqua Guard";
+  static const String agHeader2 = "Uses of Water";
+  static const String agHeader3 = "Day to day usage of water";
+
+  // Green scape Screen texts
+  static const String gsHeader = "Green Scape";
+  static const String gsLocation = "Location";
+  static const String gsBioDiversity = "Bio-Diversity";
+  static const String gsDescription = "Description";
+  static const String gsGraphical = "Graphical Representation";
+
+  // Growing Crops Screen texts
+  static const String gcHeader = "Growing crops";
+
+  // Eco Education Screen texts
+  static const String eeHeader = "Eco education";
+
+  //Eco community Screen texts
+  static const String ecHeader = "Eco community";
+
+  // Welcome, Test1 Screen texts
+  static const String welTest = "Welcome, Test1";
+
+  // Services Screen texts
+  static const String serHeader = "Services";
+
+  // Test1 Screen texts
+  static const String testUsername = "Username";
+  static const String testEmail = "E-mail";
+  static const String testDOB = "DOB";
+  static const String testPhoneNO = "Phone-No";
+
+  // Notifications Screen texts
+  static const String notifiHeader = "Notification";
+
+  // Profile Form Main
+  static const String pfmBtn1 = "Update your profile Details";
+  static const String pfmBtn2 = "Change Password";
+  static const String pfmBtn3 = "About Us";
+  static const String pfmBtn4 = "Log Out";
 }

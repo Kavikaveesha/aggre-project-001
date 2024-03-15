@@ -1,4 +1,3 @@
-import 'package:app/features/shop/screens/growing_crops/display_all_growing_crops.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
@@ -12,8 +11,8 @@ class CircularDesignContainer extends StatelessWidget {
   Widget build(BuildContext context) {
     return Stack(
       children: [
-        Positioned(top: -110, left: -5, child: TCircularContainer()),
-        Positioned(top: -40, left: -110, child: TCircularContainer()),
+        const Positioned(top: -110, left: -5, child: TCircularContainer()),
+        const Positioned(top: -40, left: -110, child: TCircularContainer()),
         Positioned(
           top: 10,
           right: 20,

@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 
 import '../../../../../common/custom_shape/widgets/charts/barGraph/bar_graph_for_waterChart.dart';
+import '../../../../../utils/constants/mediaQuery.dart';
 
 class WaterBarChart extends StatelessWidget {
   const WaterBarChart({super.key, required this.weeklyUsage});
@@ -8,8 +9,15 @@ class WaterBarChart extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final mediaqueryWidth = MediaQuery.of(context).size.width;
-    final mediaqueryHeight = MediaQuery.of(context).size.height;
+    final mediaqueryWidth = MediaQueryUtils.getWidth(context);
+    final Brightness brightness = Theme.of(context).brightness;
+
+    Color backgroundColor;
+    if (brightness == Brightness.light) {
+      backgroundColor = Colors.white; // Light mode background color
+    } else {
+      backgroundColor = Colors.black54; // Dark mode background color
+    }
     return Padding(
         padding: const EdgeInsets.symmetric(horizontal: 15, vertical: 20),
         child: Container(
@@ -17,7 +25,7 @@ class WaterBarChart extends StatelessWidget {
             height: 250,
             decoration: BoxDecoration(
               borderRadius: BorderRadius.circular(15.0),
-              color: Colors.white,
+              color: backgroundColor,
               boxShadow: [
                 BoxShadow(
                   color: Colors.grey.withOpacity(0.5),

@@ -21,7 +21,6 @@ class HomePage extends StatelessWidget {
     final mediaQueryHeight = MediaQuery.of(context).size.height;
 
     return Scaffold(
-      backgroundColor: const Color.fromARGB(255, 243, 240, 240),
       body: SingleChildScrollView(
         child: Column(
           children: [
@@ -36,10 +35,10 @@ class HomePage extends StatelessWidget {
             // Green color container start
             GreenContainer(
                 height: mediaQueryHeight * .15,
-                child: Column(
+                child: const Column(
                   children: [
                     // Search container
-                    const Padding(
+                    Padding(
                       padding: EdgeInsets.all(15.0),
                       child: SearchBarContainer(
                         resultPage: Test(),

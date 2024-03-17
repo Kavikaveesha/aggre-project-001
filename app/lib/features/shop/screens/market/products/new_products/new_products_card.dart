@@ -10,12 +10,10 @@ class NewProductCard extends StatelessWidget {
       required this.productName,
       required this.category,
       required this.price,
-      required this.rate,
       required this.index});
   final String productName;
   final String category;
   final double price;
-  final double rate;
   final int index;
 
   @override
@@ -56,26 +54,6 @@ class NewProductCard extends StatelessWidget {
                         Text(
                           category,
                           style: Theme.of(context).textTheme.bodyMedium,
-                        ),
-                      ],
-                    ),
-                    Row(
-                      children: [
-                        Text(
-                          'Rate:',
-                          style: Theme.of(context).textTheme.bodySmall,
-                        ),
-                        Row(
-                          children: [
-                            Text(
-                              '$rate',
-                              style: Theme.of(context).textTheme.bodyLarge,
-                            ),
-                            const Icon(
-                              Icons.star_rate_outlined,
-                              color: Colors.amber,
-                            )
-                          ],
                         ),
                       ],
                     ),

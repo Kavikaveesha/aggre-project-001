@@ -40,6 +40,7 @@ class _AquaGuardState extends State<AquaGuard> {
         child: Stack(
           children: [
             CircularDesignContainer(
+                backText: 'Back',
                 child: Column(
               children: [
                 SizedBox(

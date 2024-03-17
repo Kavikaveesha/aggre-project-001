@@ -12,7 +12,6 @@ class TElevatedButtonTheme {
         shape: const RoundedRectangleBorder(),
         foregroundColor: Colors.white,
         backgroundColor: TColors.appPrimaryColor,
-        side: const BorderSide(color: TColors.appSecondaryColor),
         padding: const EdgeInsets.symmetric(vertical: TSizes.buttonHeight)),
   );
 

@@ -1,8 +1,8 @@
 import 'package:app/features/shop/screens/coomunity/community_page.dart';
 import 'package:app/features/shop/screens/home_screen/home_page.dart';
 import 'package:app/features/shop/screens/notifications/notification_page.dart';
+import 'package:app/features/user_profile/profile_screen/profile_main_screen.dart';
 import 'package:app/utils/constants/colors.dart';
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:iconsax/iconsax.dart';
@@ -46,6 +46,6 @@ class NavigationController extends GetxController {
     const HomePage(),
     const CommunityPage(),
     const NotificationPage(),
-    const NotificationPage(),
+    const ProfilePage()
   ];
 }

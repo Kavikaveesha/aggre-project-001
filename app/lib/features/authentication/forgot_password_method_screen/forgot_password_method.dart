@@ -1,4 +1,7 @@
+import 'package:app/common/custom_shape/containers/circular_design_container.dart';
+import 'package:app/utils/constants/mediaQuery.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 
 import '../../../../utils/constants/image_strings.dart';
 import '../../../utils/constants/text_strings.dart';
@@ -11,62 +14,58 @@ class ForgotPasswordMethod extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(),
-      body:  SingleChildScrollView(
-        child: Column(
-          children: [
-            const Padding(
-              padding: EdgeInsets.only(top: 90, left: 10, right: 5),
-              child: Center(
-                child: Text(
-                EcoTexts.cvmHeader,
-                  style: TextStyle(
-                    fontWeight: FontWeight.bold,
-                    fontSize: 20,
-                  ),
-                ),
-              ),
-            ),
-            const SizedBox(height: 30),
+        body: SingleChildScrollView(
+      child: CircularDesignContainer(
+        backText: 'Back',
+        child: Padding(
+          padding: const EdgeInsets.all(10.0),
+          child: Column(children: [
+            SizedBox(height: MediaQueryUtils.getHeight(context) * .2),
+            // Forget Password Header Text
             Padding(
-              padding: const EdgeInsets.only(top: 10),
-              child: Image.asset(
-                TImages.ecoIcon,
-                height: 100,
-                width: 100,
-              ),
+              padding: const EdgeInsets.symmetric(horizontal: 20),
+              child: Text(EcoTexts.cvmHeader,
+                  style: Theme.of(context)
+                      .textTheme
+                      .headlineSmall!
+                      .copyWith(fontSize: 20)),
             ),
-            const SizedBox(height: 50),
+            // Eco Image
+            Image(
+              image: const AssetImage(
+                TImages.ecoIcon,
+              ),
+              height: MediaQueryUtils.getHeight(context) * .3,
+            ),
+            SizedBox(height: MediaQueryUtils.getHeight(context) * .005),
+
             Column(
               children: [
                 ElevatedButton(
-                    onPressed: () {
-                      Navigator.push(
-                          context,
-                          MaterialPageRoute(builder: (context) => const MethodEmail()),
-                      );
-                    },
-                  style: ElevatedButton.styleFrom(
-                    minimumSize: const Size(350, 50),
-                  ),
-                    child: const Text(
-                    EcoTexts.cvmBtn1,
-                      style: TextStyle(
-                        fontSize: 20,
-                        fontWeight: FontWeight.bold,
-                      ),
-                    ),
-                ),
-                const SizedBox(height: 30.0),
-                ElevatedButton(
                   onPressed: () {
-                    Navigator.push(context, MaterialPageRoute(builder: (context) => const MethodPhone()),);
+                    Get.to(() => const MethodEmail());
                   },
                   style: ElevatedButton.styleFrom(
                     minimumSize: const Size(350, 50),
                   ),
                   child: const Text(
-                   ' EcoTexts.cvmBtn2',
+                    EcoTexts.cvmBtn1,
+                    style: TextStyle(
+                      fontSize: 20,
+                      fontWeight: FontWeight.bold,
+                    ),
+                  ),
+                ),
+                SizedBox(height: MediaQueryUtils.getHeight(context) * .02),
+                ElevatedButton(
+                  onPressed: () {
+                    Get.to(() => const MethodPhone());
+                  },
+                  style: ElevatedButton.styleFrom(
+                    minimumSize: const Size(350, 50),
+                  ),
+                  child: const Text(
+                    EcoTexts.cvmBtn2,
                     style: TextStyle(
                       fontSize: 20,
                       fontWeight: FontWeight.bold,
@@ -75,10 +74,9 @@ class ForgotPasswordMethod extends StatelessWidget {
                 ),
               ],
             ),
-          ],
+          ]),
         ),
       ),
-    );
+    ));
   }
 }
-

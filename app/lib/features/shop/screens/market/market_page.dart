@@ -1,9 +1,11 @@
 import 'package:app/features/shop/screens/market/products/all_products_grid/all_products_grid.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import '../../../../common/custom_shape/containers/gree_color_container.dart';
 import '../../../../common/custom_shape/containers/search_container.dart';
 import '../../../../common/custom_shape/widgets/appbar/app_bar.dart';
 import '../../../../utils/constants/image_strings.dart';
+import '../../../../utils/constants/mediaQuery.dart';
 import 'products/new_products/new_products_slider.dart';
 import 'products/top_products/top_products_row.dart';
 import '../test.dart';
@@ -15,22 +17,24 @@ class MarketPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final mediaQueryWidth = MediaQuery.of(context).size.width;
-    final mediaQueryHeight = MediaQuery.of(context).size.height;
+    final mediaQueryheight = MediaQueryUtils.getHeight(context);
     return Scaffold(
-      backgroundColor: const Color.fromARGB(255, 243, 240, 240),
       body: SingleChildScrollView(
         child: Column(
           children: [
             // Custom App Bar
             CustomAppBar(
+                iconBack: Icons.arrow_back_ios,
+                onTapBack: () {
+                  Get.back();
+                },
                 appbarTitle: 'Welcome to ECO Net Market',
                 appbarSubtitle: 'Lets buy some fresh and organic foods',
                 profileImage: TImages.farmer1,
                 onTapProfile: () {}),
 
             GreenContainer(
-                height: mediaQueryHeight * .4,
+                height: mediaQueryheight * .4,
                 child: Column(
                   children: [
                     // Search container
@@ -41,7 +45,7 @@ class MarketPage extends StatelessWidget {
                         text: 'Search......',
                       ),
                     ),
-                    SizedBox(height: mediaQueryHeight * 0.005),
+                    SizedBox(height: mediaQueryheight * 0.005),
 
                     // TopProducts row
                     const TopProducts()
@@ -59,7 +63,7 @@ class MarketPage extends StatelessWidget {
                       style: Theme.of(context).textTheme.bodyLarge,
                     ),
                     SizedBox(
-                      height: mediaQueryHeight * .01,
+                      height: mediaQueryheight * .01,
                     ),
                     const NewProductsSlider()
                   ],

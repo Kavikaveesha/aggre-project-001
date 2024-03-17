@@ -1,7 +1,11 @@
+import 'package:app/common/custom_shape/containers/circular_design_container.dart';
+import 'package:app/common/custom_shape/widgets/text_inputs/text_input_field.dart';
+import 'package:app/features/authentication/forgot_password_method_screen/method_email_screen/verify_getcode_email.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import '../../../../../utils/constants/image_strings.dart';
+import '../../../../utils/constants/mediaQuery.dart';
 import '../../../../utils/constants/text_strings.dart';
-import '../method_phone_screen/verify_getcode_phone.dart';
 
 class MethodEmail extends StatelessWidget {
   const MethodEmail({super.key});
@@ -9,65 +13,59 @@ class MethodEmail extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(),
       body: SingleChildScrollView(
         child: Center(
-          child: Column(
-            children: [
-              const Padding(
-                padding: EdgeInsets.only(top: 90),
-                child: Text(
-                  EcoTexts.megHeader,
-                  style: TextStyle(
-                    fontWeight: FontWeight.bold,
-                    fontSize: 20,
+            child: CircularDesignContainer(
+                backText: 'Back',
+                child: Padding(
+                  padding: const EdgeInsets.all(10.0),
+                  child: Column(
+                    children: [
+                      SizedBox(height: MediaQueryUtils.getHeight(context) * .3),
+                      // Header text
+                      Center(
+                        child: Text(
+                          EcoTexts.megHeader,
+                          style: Theme.of(context).textTheme.headlineMedium,
+                          textAlign: TextAlign.center,
+                        ),
+                      ),
+                      // This is eco image
+                      // eco image
+                      Image(
+                        image: const AssetImage(
+                          TImages.ecoIcon,
+                        ),
+                        height: MediaQueryUtils.getHeight(context) * .3,
+                      ),
+                      SizedBox(
+                          height: MediaQueryUtils.getHeight(context) * .005),
+
+                      // Get email input to send opt
+                      const EcoInputField(
+                          icon: Icons.mail,
+                          labelText: 'Enter your email address(abc@ooo.com)'),
+
+                      SizedBox(
+                          height: MediaQueryUtils.getHeight(context) * .025),
+                      SizedBox(
+                        width: MediaQueryUtils.getWidth(context) * .9,
+                        child: ElevatedButton(
+                          onPressed: () {
+                            Get.to(() => const VerifyGetCodeEmail());
+                          },
+                          child: const Text(
+                            'Send Code',
+                            style: TextStyle(
+                              fontSize: 20,
+                              fontWeight: FontWeight.bold,
+                            ),
+                          ),
+                        ),
+                      ),
+                    ],
                   ),
-                ),
-              ),
-              const SizedBox(height: 30),
-              Padding(
-                padding: const EdgeInsets.only(top: 10),
-                child: Image.asset(
-                  TImages.ecoIcon,
-                  height: 100,
-                  width: 100,
-                ),
-              ),
-              const SizedBox(height: 30),
-              SizedBox(
-                width: 385,
-                child: TextFormField(
-                  decoration: const InputDecoration(
-                    prefixIcon: Icon(
-                      Icons.email_outlined,
-                    ),
-                    labelText: 'Enter your email address(abc@ooo.com)',
-                  ),
-                ),
-              ),
-              const SizedBox(height: 30),
-              ElevatedButton(
-                onPressed: () {
-                  Navigator.push(
-                    context,
-                    MaterialPageRoute(
-                        builder: (context) => const VerifyGetCode()),
-                  );
-                },
-                style: ElevatedButton.styleFrom(
-                  minimumSize: const Size(200, 50),
-                ),
-                child: const Text(
-                  TImages.ecoIcon,
-                  style: TextStyle(
-                    fontSize: 20,
-                    fontWeight: FontWeight.bold,
-                  ),
-                ),
-              ),
-            ],
-          ),
-        ),
+                ))),
       ),
     );
   }

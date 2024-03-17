@@ -1,8 +1,5 @@
-import 'package:app/features/shop/screens/coomunity/Quections_flow/quection_post/comment_widget.dart';
-import 'package:app/features/shop/screens/coomunity/Quections_flow/quection_post/quection_post.dart';
 import 'package:app/features/shop/screens/coomunity/Quections_flow/quection_post/quection_list.dart';
 import 'package:app/utils/constants/colors.dart';
-import 'package:app/utils/constants/image_strings.dart';
 import 'package:flutter/material.dart';
 
 import '../../../../../common/custom_shape/containers/search_container.dart';
@@ -18,7 +15,6 @@ class QuectionFlow extends StatelessWidget {
     final mediaQueryWidth = MediaQuery.of(context).size.width;
 
     return Scaffold(
-      backgroundColor: const Color.fromARGB(255, 243, 240, 240),
       body: SingleChildScrollView(
         child: Column(
           children: [

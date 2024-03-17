@@ -4,6 +4,7 @@ import 'package:app/features/shop/screens/services/aqua_guard/water_description.
 
 import 'package:flutter/material.dart';
 
+import '../../../../../utils/constants/mediaQuery.dart';
 import 'green_scape_chart.dart';
 // these are the list from back end
 
@@ -36,14 +37,16 @@ class GreenScape extends StatefulWidget {
 class _GreenScapeState extends State<GreenScape> {
   @override
   Widget build(BuildContext context) {
-    final mediaqueryWidth = MediaQuery.of(context).size.width;
-    final mediaqueryHeight = MediaQuery.of(context).size.height;
+       final mediaqueryHeight = MediaQueryUtils.getHeight(context);
+       
+
     return Scaffold(
         body: SingleChildScrollView(
       child: SingleChildScrollView(
         child: Stack(
           children: [
             CircularDesignContainer(
+                backText: 'Back',
                 child: Column(
               children: [
                 SizedBox(

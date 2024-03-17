@@ -1,3 +1,4 @@
+import 'package:app/utils/constants/colors.dart';
 import 'package:flutter/material.dart';
 import 'custom_theme/appBar_theme.dart';
 import 'custom_theme/bottom_sheet_theme.dart';
@@ -15,10 +16,9 @@ class TAppTheme {
     useMaterial3: true,
     fontFamily: 'Poppins',
     brightness: Brightness.light,
-    primaryColor: Colors.blue,
     textTheme: TTextTheme.lightTextTheme,
     chipTheme: TChipTheme.lightChipTheme,
-    scaffoldBackgroundColor: Colors.white,
+    scaffoldBackgroundColor: const Color.fromARGB(255, 243, 240, 240),
     appBarTheme: TAppBarTheme.lightAppBarTheme,
     checkboxTheme: TCheckBoxTheme.lightCheckboxTheme,
     bottomSheetTheme: TBottomSheetTheme.lightBottomSheetTheme,
@@ -30,7 +30,6 @@ class TAppTheme {
     useMaterial3: true,
     fontFamily: 'Poppins',
     brightness: Brightness.dark,
-    primaryColor: Colors.blue,
     textTheme: TTextTheme.darkTextTheme,
     chipTheme: TChipTheme.darkChipTheme,
     scaffoldBackgroundColor: Colors.black,

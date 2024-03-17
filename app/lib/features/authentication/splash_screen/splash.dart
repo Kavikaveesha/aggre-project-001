@@ -1,71 +1,76 @@
+import 'package:app/common/custom_shape/containers/circular_design_container.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import '../../../../utils/constants/image_strings.dart';
 import '../../../utils/constants/text_strings.dart';
 import '../logIn_screen/login_main.dart';
 
 class SplashScreen extends StatelessWidget {
-  const SplashScreen({super.key, });
+  const SplashScreen({
+    super.key,
+  });
 
   @override
   Widget build(BuildContext context) {
+    final mediaQueryHeight = MediaQuery.of(context).size.height;
+    final mediaQueryWidth = MediaQuery.of(context).size.width;
     return Scaffold(
       body: SingleChildScrollView(
-        child: Column(
-          children: [
-            Padding(
-              padding: const EdgeInsets.only(top: 300, right: 20),
-              child: Image.asset(
-                TImages.ecoIcon,
-                height: 100,
-                width: 100,
+          child: CircularDesignContainer(
+        backText: '',
+        child: Padding(
+          padding: const EdgeInsets.symmetric(vertical: 20, horizontal: 10),
+          child: Column(
+            children: [
+              SizedBox(
+                height: mediaQueryHeight * .2,
               ),
-            ),
-            const SizedBox(height: 20),
-            const Padding(
-              padding: EdgeInsets.only(top: 20),
-              child: Column(
-                children: [
-                  Text(
-                    EcoTexts.splashHeader,
-                    style: TextStyle(
-                      fontWeight: FontWeight.bold,
-                      fontSize: 25,
+              // Eco Image
+              Image(
+                image: const AssetImage(
+                  TImages.ecoIcon,
+                ),
+                height: mediaQueryHeight * .3,
+              ),
+              SizedBox(height: mediaQueryHeight * .01),
+
+              // Main Titoe and sub title
+              Padding(
+                padding: const EdgeInsets.symmetric(horizontal: 10),
+                child: Column(
+                  children: [
+                    Text(
+                      EcoTexts.splashHeader,
+                      style: Theme.of(context).textTheme.headlineMedium,
                     ),
-                  ),
-                  SizedBox(height: 40),
-                  Text(
-                    EcoTexts.splashSubHeader,
-                    textAlign: TextAlign.center,
-                    style: TextStyle(
-                      fontWeight: FontWeight.bold,
-                      fontSize: 17,
+                    SizedBox(height: mediaQueryHeight * .05),
+                    Text(
+                      EcoTexts.splashSubHeader,
+                      textAlign: TextAlign.center,
+                      style: Theme.of(context).textTheme.bodyLarge,
                     ),
-                  ),
-                ],
-              ),
-            ),
-            const SizedBox(height: 120),
-            ElevatedButton(
-              onPressed: () {
-                Navigator.push(
-                    context,
-                    MaterialPageRoute(builder: (context) => const LogIn()),
-                );
-              },
-              style: ElevatedButton.styleFrom(
-                minimumSize: const Size(350, 50),
-              ),
-              child: const Text(
-                EcoTexts.splashbutton,
-                style: TextStyle(
-                  fontSize: 20,
-                  fontWeight: FontWeight.bold,
+                  ],
                 ),
               ),
-            ),
-          ],
+              SizedBox(height: mediaQueryHeight * .08),
+              // Elevated button
+              SizedBox(
+                width: mediaQueryWidth * .8,
+                child: ElevatedButton(
+                  onPressed: () {
+                    Get.to(() => const LogIn());
+                  },
+                  child: Text(EcoTexts.splashbutton,
+                      style: Theme.of(context)
+                          .textTheme
+                          .headlineSmall!
+                          .copyWith(color: Colors.white)),
+                ),
+              ),
+            ],
+          ),
         ),
-      ),
+      )),
     );
   }
 }

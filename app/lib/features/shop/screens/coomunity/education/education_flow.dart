@@ -1,4 +1,4 @@
-
+import 'package:app/utils/constants/mediaQuery.dart';
 import 'package:flutter/material.dart';
 
 import '../../../../../common/custom_shape/containers/search_container.dart';
@@ -12,10 +12,9 @@ class EducationFlow extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final mediaQueryheight = MediaQuery.of(context).size.height;
-    final mediaQueryWidth = MediaQuery.of(context).size.width;
+    final mediaQueryheight = MediaQueryUtils.getHeight(context);
+    final mediaQueryWidth = MediaQueryUtils.getWidth(context);
     return Scaffold(
-      backgroundColor: const Color.fromARGB(255, 243, 240, 240),
       body: SingleChildScrollView(
         child: Column(
           children: [

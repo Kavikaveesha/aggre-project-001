@@ -21,6 +21,14 @@ class RectangleCard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final Brightness brightness = Theme.of(context).brightness;
+
+    Color backgroundColor;
+    if (brightness == Brightness.light) {
+      backgroundColor = Colors.white; // Light mode background color
+    } else {
+      backgroundColor = TColors.appPrimaryColor; // Dark mode background color
+    }
     return InkWell(
       onTap: onTap,
       child: Container(
@@ -28,7 +36,7 @@ class RectangleCard extends StatelessWidget {
         height: height,
         margin: const EdgeInsets.only(bottom: 16.0),
         decoration: BoxDecoration(
-          color: Colors.white, // Light ash color
+          color: backgroundColor, // Light ash color
           borderRadius: BorderRadius.circular(25.0),
           boxShadow: [
             BoxShadow(
@@ -50,7 +58,7 @@ class RectangleCard extends StatelessWidget {
                   Center(
                     child: Icon(
                       iconName,
-                      color: TColors.appPrimaryColor,
+                      color: Colors.black,
                       size: 60.0,
                     ),
                   ),

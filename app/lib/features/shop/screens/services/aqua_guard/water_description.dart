@@ -6,12 +6,20 @@ class WaterDiscription extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final Brightness brightness = Theme.of(context).brightness;
+
+    Color backgroundColor;
+    if (brightness == Brightness.light) {
+      backgroundColor = Colors.white; // Light mode background color
+    } else {
+      backgroundColor = Colors.black54; // Dark mode background color
+    }
     return Padding(
       padding: const EdgeInsets.symmetric(horizontal: 15),
       child: Container(
         decoration: BoxDecoration(
           borderRadius: BorderRadius.circular(15.0),
-          color: Colors.white,
+          color: backgroundColor,
           boxShadow: [
             BoxShadow(
               color: Colors.grey.withOpacity(0.5),

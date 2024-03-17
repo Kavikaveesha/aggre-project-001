@@ -1,9 +1,6 @@
 import 'package:app/features/shop/screens/market/products/all_products_grid/product_card.dart';
 import 'package:flutter/material.dart';
-import 'package:get/get.dart';
 
-import '../../../../../../utils/constants/image_strings.dart';
-import '../product_detail_page/product_detail_page.dart';
 
 class AllProductsGrid extends StatelessWidget {
   const AllProductsGrid({super.key});

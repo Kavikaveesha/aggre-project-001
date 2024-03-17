@@ -9,17 +9,28 @@ class CustomAppBar extends StatelessWidget {
       required this.appbarSubtitle,
       required this.profileImage,
       required this.onTapProfile,
-      this.onTapcart, this.bottonChild});
+      this.onTapcart,
+      this.bottonChild,
+      this.onTapBack,
+      this.iconBack});
   final String appbarTitle;
   final String appbarSubtitle;
   final VoidCallback onTapProfile;
   final VoidCallback? onTapcart;
   final String profileImage;
   final PreferredSizeWidget? bottonChild;
+  final VoidCallback? onTapBack;
+  final IconData? iconBack;
 
   @override
   Widget build(BuildContext context) {
     return AppBar(
+      leading: IconButton(
+        onPressed: onTapBack,
+        icon: Icon(iconBack),
+        color: Colors.white,
+      ),
+      automaticallyImplyLeading: false,
       toolbarHeight: 80,
       backgroundColor: TColors.appPrimaryColor,
       title: PreferredSize(
@@ -52,7 +63,6 @@ class CustomAppBar extends StatelessWidget {
           padding: const EdgeInsets.all(8.0),
           child: InkWell(
               onTap: () {
-                
                 // Navigate to the cart page when the profile button is clicked
                 onTapcart;
               },

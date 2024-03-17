@@ -10,6 +10,7 @@ class AddComment extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    
     return // Buttons Section
         Padding(
       padding: const EdgeInsets.symmetric(horizontal: 15, vertical: 10),

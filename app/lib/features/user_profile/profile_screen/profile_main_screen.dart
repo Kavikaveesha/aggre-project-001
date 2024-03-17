@@ -1,243 +1,155 @@
 import 'dart:io';
 import 'dart:typed_data';
+import 'package:app/common/custom_shape/widgets/cards/profile_details_card/profile_details_card.dart';
+import 'package:app/features/authentication/logIn_screen/login_main.dart';
+import 'package:app/utils/constants/colors.dart';
+import 'package:app/utils/constants/mediaQuery.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'package:image_picker/image_picker.dart';
 import '../../../utils/constants/text_strings.dart';
-import '../../authentication/profile_screen/update_profile_details_screen/update_profile_form.dart';
-import 'about_us_screen/about_us_screen.dart';
-import 'change_password_screen/change_password_screen.dart';
+import '../about_us_screen/about_us_screen.dart';
+import '../change_password_screen/change_password_screen.dart';
+import '../update_profile_details_screen/update_profile_form.dart';
 
-class PickImage extends StatefulWidget {
-  const PickImage({Key? key}) : super(key: key);
+class ProfilePage extends StatefulWidget {
+  const ProfilePage({Key? key}) : super(key: key);
 
   @override
-  State<PickImage> createState() => _PickImageState();
+  State<ProfilePage> createState() => _ProfilePageState();
 }
 
-class _PickImageState extends State<PickImage> {
+class _ProfilePageState extends State<ProfilePage> {
   Uint8List? _image;
   File? selectedImage;
 
   @override
   Widget build(BuildContext context) {
+    String name = 'kavindu';
     return Scaffold(
       appBar: AppBar(
-        backgroundColor: Colors.green,
-        title: const Text(
-          'Profile',
-          style: TextStyle(
+        backgroundColor: TColors.appPrimaryColor,
+        title: Text(
+          '$name\'s Profile',
+          style: const TextStyle(
             color: Colors.white,
           ),
         ),
       ),
       body: SingleChildScrollView(
-        child: Padding(
-          padding: const EdgeInsets.only(top: 10, left: 30),
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: [
-              Stack(
-                alignment: Alignment.center,
-                children: [
-                  _image != null
-                      ? CircleAvatar(
-                    radius: 100,
-                    backgroundImage: _image != null
-                        ? MemoryImage(_image!)
-                        : null,
-                  )
-                      : const CircleAvatar(
-                    radius: 100,
-                    backgroundColor: Colors.lightGreenAccent,
-                  ),
-                  Positioned(
-                    bottom: -8,
-                    left: 130,
-                    child: IconButton(
-                      onPressed: () {
-                        showImagePickerOption(context);
-                      },
-                      icon: const Icon(
-                        Icons.add_a_photo,
-                        size: 30,
-                      ),
-                    ),
-                  ),
-                ],
-              ),
-              const SizedBox(height: 20),
-              SizedBox(
-                width: 350,
-                height: 60,
-                child: OutlinedButton(
-                  onPressed: () {
-                    Navigator.push(
-                      context,
-                      MaterialPageRoute(
-                        builder: (context) => const UpdateProfileDetails(),
-                      ),
-                    );
-                  },
-                  style: ButtonStyle(
-                    overlayColor:
-                    MaterialStateColor.resolveWith((states) => Colors.lightGreenAccent),
-                  ),
-                  child: const Align(
-                    alignment: Alignment.topLeft,
-                    child: Row(
-                      children: [
-                        Icon(
-                          Icons.verified_user, // Replace with the desired icon
-                          size: 24, // Adjust the size of the icon as needed
-                        ),
-                        SizedBox(width: 55), // Adjust the spacing between the icon and text
-                        Text(
-                          EcoTexts.pfmBtn1,
-                          style: TextStyle(
-                            fontSize: 20,
-                            fontWeight: FontWeight.bold,
+        child: Column(
+          children: [
+            Padding(
+              padding: const EdgeInsets.symmetric(vertical: 15),
+              child: SizedBox(
+                width: MediaQueryUtils.getWidth(context),
+                height: MediaQueryUtils.getHeight(context) * .3,
+                child: Stack(
+                  alignment: Alignment.center,
+                  children: [
+                    _image != null
+                        ? CircleAvatar(
+                            radius: 80,
+                            backgroundImage:
+                                _image != null ? MemoryImage(_image!) : null,
+                          )
+                        : const CircleAvatar(
+                            radius: 80,
+                            backgroundColor: Colors.lightGreenAccent,
                           ),
-                        ),
-                      ],
-                    ),
-                  ),
-                ),
-              ),
-              const SizedBox(height: 20),
-              SizedBox(
-                width: 350,
-                height: 60,
-                child: OutlinedButton(
-                  onPressed: () {
-                    Navigator.push(
-                      context,
-                      MaterialPageRoute(
-                        builder: (context) => const ChangePasswordMain(),
-                      ),
-                    );
-                  },
-                  style: ButtonStyle(
-                    overlayColor:
-                    MaterialStateColor.resolveWith((states) => Colors.lightGreenAccent),
-                  ),
-                  child: const Align(
-                    alignment: Alignment.topLeft,
-                    child: Row(
-                      children: [
-                        Icon(
-                          Icons.key, // Replace with the desired icon
-                          size: 24, // Adjust the size of the icon as needed
-                        ),
-                        SizedBox(width: 55), // Adjust the spacing between the icon and text
-                        Text(
-                          EcoTexts.pfmBtn2,
-                          style: TextStyle(
-                            fontSize: 20,
-                            fontWeight: FontWeight.bold,
-                          ),
-                        ),
-                      ],
-                    ),
-                  ),
-                ),
-              ),
-              const SizedBox(height: 20),
-              SizedBox(
-                width: 350,
-                height: 60,
-                child: OutlinedButton(
-                  onPressed: () {
-                    Navigator.push(
-                      context,
-                      MaterialPageRoute(
-                        builder: (context) => const AboutUsDetails(),
-                      ),
-                    );
-                  },
-                  style: ButtonStyle(
-                    overlayColor:
-                    MaterialStateColor.resolveWith((states) => Colors.lightGreenAccent),
-                  ),
-                  child: const Align(
-                    alignment: Alignment.topLeft,
-                    child: Row(
-                      children: [
-                        Icon(
-                          Icons.menu_book, // Replace with the desired icon
-                          size: 24, // Adjust the size of the icon as needed
-                        ),
-                        SizedBox(width: 55), // Adjust the spacing between the icon and text
-                        Text(
-                          EcoTexts.pfmBtn3,
-                          style: TextStyle(
-                            fontSize: 20,
-                            fontWeight: FontWeight.bold,
-                          ),
-                        ),
-                      ],
-                    ),
-                  ),
-                ),
-              ),
-              const SizedBox(height: 20),
-              SizedBox(
-                width: 350,
-                height: 60,
-                child: OutlinedButton(
-                  onPressed: () {
-                    showDialog(
-                        context: context,
-                        builder: (BuildContext context) {
-                          return AlertDialog(
-                            title: const Text('Confirmation'),
-                            content: const Text("Do you want to Exit?"),
-                            actions: [
-                              TextButton(
-                                  onPressed: () {
-                                    Navigator.of(context).pop();
-                                  },
-                                  child: const Text(
-                                      'NO'
-                                  ),
-                              ),
-                              TextButton(
-                                  onPressed: () {
-                                    Navigator.of(context).pop(); // Write code here for "yes" action
-                                  },
-                                  child: const Text('Yes'),
-                              ),
-                            ],
-                          );
+                    Positioned(
+                      bottom: 10,
+                      left: 200,
+                      child: IconButton(
+                        onPressed: () {
+                          showImagePickerOption(context);
                         },
-                      );
-                    },
-                  style: ButtonStyle(
-                    overlayColor:
-                    MaterialStateColor.resolveWith((states) => Colors.lightGreenAccent),
-                  ),
-                  child: const Align(
-                    alignment: Alignment.topRight,
-                    child: Row(
-                      children: [
-                        Icon(
-                          Icons.logout, // Replace with the desired icon
-                          size: 24, // Adjust the size of the icon as needed
+                        icon: const Icon(
+                          Icons.add_a_photo,
+                          size: 40,
                         ),
-                        SizedBox(width: 55), // Adjust the spacing between the icon and text
-                        Text(
-                          EcoTexts.pfmBtn4,
-                          style: TextStyle(
-                            fontSize: 20,
-                            fontWeight: FontWeight.bold,
-                          ),
-                        ),
-                      ],
+                      ),
                     ),
-                  ),
+                  ],
                 ),
               ),
-            ],
-          ),
+            ),
+            Column(
+              crossAxisAlignment: CrossAxisAlignment.center,
+              children: [
+                // update profile details
+                ProfileDetailsCard(
+                  text: EcoTexts.pfmBtn1,
+                  onTap: () {
+                    Get.to(() => const UpdateProfileDetails());
+                  },
+                  icon: Icons.verified_user,
+                ),
+                SizedBox(height: MediaQueryUtils.getHeight(context) * .02),
+
+                // Change Password
+                ProfileDetailsCard(
+                  text: EcoTexts.pfmBtn2,
+                  onTap: () {
+                    Get.to(() => const ChangePasswordMain());
+                  },
+                  icon: Icons.key,
+                ),
+                SizedBox(height: MediaQueryUtils.getHeight(context) * .02),
+
+                // Card Details
+                ProfileDetailsCard(
+                  text: EcoTexts.pfmBtn3,
+                  onTap: () {
+                    Get.to(() => const ChangePasswordMain());
+                  },
+                  icon: Icons.credit_card,
+                ),
+                SizedBox(height: MediaQueryUtils.getHeight(context) * .02),
+
+                // About us
+                ProfileDetailsCard(
+                  text: EcoTexts.pfmBtn4,
+                  onTap: () {
+                    Get.to(() => const AboutUsDetails());
+                  },
+                  icon: Icons.menu_book,
+                ),
+                SizedBox(height: MediaQueryUtils.getHeight(context) * .02),
+                // About us
+                ProfileDetailsCard(
+                  text: EcoTexts.pfmBtn5,
+                  onTap: () {
+                    showDialog(
+                      context: context,
+                      builder: (BuildContext context) {
+                        return AlertDialog(
+                          title: const Text('Confirmation'),
+                          content: const Text("Do you want to Exit?"),
+                          actions: [
+                            TextButton(
+                              onPressed: () {
+                                Get.back();
+                              },
+                              child: const Text('NO'),
+                            ),
+                            TextButton(
+                              onPressed: () {
+                                Get.to(() => const LogIn());
+                              },
+                              child: const Text('Yes'),
+                            ),
+                          ],
+                        );
+                      },
+                    );
+                  },
+                  icon: Icons.logout,
+                ),
+                SizedBox(height: MediaQueryUtils.getHeight(context) * .02),
+              ],
+            ),
+          ],
         ),
       ),
     );
@@ -302,7 +214,7 @@ class _PickImageState extends State<PickImage> {
   // Gallery
   Future<void> _pickImageFromGallery() async {
     final pickedImage =
-    await ImagePicker().pickImage(source: ImageSource.gallery);
+        await ImagePicker().pickImage(source: ImageSource.gallery);
     if (pickedImage == null) return;
     final File imageFile = File(pickedImage.path);
     final Uint8List bytes = await imageFile.readAsBytes();
@@ -316,7 +228,7 @@ class _PickImageState extends State<PickImage> {
   // Camera
   Future<void> _pickImageFromCamera() async {
     final pickedImage =
-    await ImagePicker().pickImage(source: ImageSource.camera);
+        await ImagePicker().pickImage(source: ImageSource.camera);
     if (pickedImage == null) return;
     final File imageFile = File(pickedImage.path);
     final Uint8List bytes = await imageFile.readAsBytes();

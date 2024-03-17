@@ -19,6 +19,15 @@ class _AddQuestionState extends State<AddQuestion> {
     final mediaQueryHeight = MediaQuery.of(context).size.height;
     final mediaQueryWidth = MediaQuery.of(context).size.width;
 
+    final Brightness brightness = Theme.of(context).brightness;
+
+    Color backgroundColor;
+    if (brightness == Brightness.light) {
+      backgroundColor = Colors.white; // Light mode background color
+    } else {
+      backgroundColor = Colors.black54; // Dark mode background color
+    }
+
     return InkWell(
       onTap: () {
         setState(() {
@@ -30,7 +39,7 @@ class _AddQuestionState extends State<AddQuestion> {
         child: Container(
           decoration: BoxDecoration(
             borderRadius: BorderRadius.circular(15.0),
-            color: Colors.white,
+            color: backgroundColor, // Set the background color here
             boxShadow: [
               BoxShadow(
                 color: Colors.grey.withOpacity(0.5),
@@ -47,7 +56,7 @@ class _AddQuestionState extends State<AddQuestion> {
               children: [
                 Text(
                   'Click to ask a Question',
-                  style: Theme.of(context).textTheme.headlineSmall,
+                  style: Theme.of(context).textTheme.headline6,
                 ),
                 SizedBox(
                   height: mediaQueryHeight * .005,
@@ -114,7 +123,7 @@ class _AddQuestionState extends State<AddQuestion> {
                             onPressed: () {},
                             child: Text(
                               'Submit',
-                              style: Theme.of(context).textTheme.headlineSmall,
+                              style: Theme.of(context).textTheme.headline6,
                             ),
                           )
                         ],

@@ -13,6 +13,7 @@ List<Map<String, String>> serviceCards = [
   {'title': 'Green Scape', 'imageName': TImages.btnImg1},
   {'title': 'Aqua Guard', 'imageName': TImages.btnImg1},
   {'title': 'Eco Quead', 'imageName': TImages.btnImg1},
+  {'title': 'Co2', 'imageName': TImages.btnImg1},
 ];
 // this is service card  navigate pages list
 List<Widget> pageWidgets = [

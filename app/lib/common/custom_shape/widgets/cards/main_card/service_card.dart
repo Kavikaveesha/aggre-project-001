@@ -1,3 +1,4 @@
+import 'package:app/utils/constants/colors.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
@@ -17,6 +18,14 @@ class ServiceCard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final Brightness brightness = Theme.of(context).brightness;
+
+    Color backgroundColor;
+    if (brightness == Brightness.light) {
+      backgroundColor = Colors.white; // Light mode background color
+    } else {
+      backgroundColor = TColors.appPrimaryColor; // Dark mode background color
+    }
     return InkWell(
       onTap: onTap,
       child: Container(
@@ -24,7 +33,7 @@ class ServiceCard extends StatelessWidget {
         height: height,
         margin: const EdgeInsets.only(bottom: 16.0),
         decoration: BoxDecoration(
-          color: Colors.white, // Light ash color
+          color: backgroundColor, // Light ash color
           borderRadius: BorderRadius.circular(25.0),
           boxShadow: [
             BoxShadow(

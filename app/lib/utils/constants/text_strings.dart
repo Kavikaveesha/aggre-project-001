@@ -12,7 +12,7 @@ class EcoTexts {
   static const String splashbutton = "Get Started";
 
   // Welcome Screen texts
-  static const String welcomeHeader = "Welcome !";
+  static const String welcomeHeaderRegister = "Join With Us";
   static const String welcomeFullName = "Enter Your Full Name ";
   static const String welcomeFirstName = "First Name ";
   static const String welcomeEmail = "Enter Your Email ";
@@ -29,7 +29,7 @@ class EcoTexts {
   static const String vryCheckEmail = "Don't see an email?";
   static const String vryCheckEmail2 = "Check your spam folder";
   static const String vryCode = "Code expired?";
-  static const String vryCode2 = "Resend verification email";
+  static const String vryCode2 = " Click here to Resend";
   static const String vryBtn = "Registered";
 
   // Choose forgot password Method Screen
@@ -39,12 +39,12 @@ class EcoTexts {
   static const String cvmBtn2 = "Phone number";
 
   // Method Email get password code
-  static const String megHeader = "Change the password through Email";
+  static const String megHeader = "Change the password \nthrough Email";
   static const String megBtn1 = "Get code";
 
   // Email verify get code
-  static const String evgHeader = "Enter the code received in the email";
-  static const String evgBtn1 = "Success the get code";
+  static const String evgHeader = "Enter the code received ";
+  static const String evgBtn1 = "Submit Code";
 
   // Forgot Password Form
   static const String fpfHeader = "Change your Password";
@@ -119,6 +119,7 @@ class EcoTexts {
   // Profile Form Main
   static const String pfmBtn1 = "Update your profile Details";
   static const String pfmBtn2 = "Change Password";
-  static const String pfmBtn3 = "About Us";
-  static const String pfmBtn4 = "Log Out";
+  static const String pfmBtn3 = "Card Details";
+  static const String pfmBtn4 = "About Us";
+  static const String pfmBtn5 = "Log Out";
 }

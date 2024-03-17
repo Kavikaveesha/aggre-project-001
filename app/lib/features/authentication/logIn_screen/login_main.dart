@@ -1,8 +1,10 @@
+import 'package:app/common/custom_shape/containers/circular_design_container.dart';
+import 'package:app/common/custom_shape/widgets/text_inputs/text_input_field.dart';
 import 'package:app/navigation_menu.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import '../../../../utils/constants/image_strings.dart';
 import '../../../utils/constants/text_strings.dart';
-import '../../shop/screens/home_screen/home_page.dart';
 import '../forgot_password_method_screen/forgot_password_method.dart';
 import '../register_screen/sign_up_main.dart';
 
@@ -11,114 +13,98 @@ class LogIn extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final mediaQueryHeight = MediaQuery.of(context).size.height;
+    final mediaQueryWidth = MediaQuery.of(context).size.width;
     return Scaffold(
-      appBar: AppBar(),
       body: SingleChildScrollView(
-        child: Column(
-          children: [
-            const Padding(
-                padding: EdgeInsets.only(top: 150),
-              child: Center(
+          child: CircularDesignContainer(
+        backText: 'Back',
+        child: Padding(
+          padding: const EdgeInsets.all(10.0),
+          child: Column(
+            children: [
+              SizedBox(height: mediaQueryHeight * .15),
+              Center(
                 child: Text(
-                 EcoTexts.welbackHeader,
-                  style: TextStyle(
-                    fontWeight: FontWeight.bold,
-                    fontSize: 25,
+                  EcoTexts.welbackHeader,
+                  style: Theme.of(context).textTheme.headlineMedium,
+                ),
+              ),
+              SizedBox(height: mediaQueryHeight * .01),
+              Image(
+                image: const AssetImage(
+                  TImages.ecoIcon,
+                ),
+                height: mediaQueryHeight * .3,
+              ),
+
+              // Start login form
+              SizedBox(height: mediaQueryHeight * .005),
+              const EcoInputField(
+                  icon: Icons.email, labelText: 'Enter your email'),
+              SizedBox(height: mediaQueryHeight * .015),
+              const EcoInputField(
+                  icon: Icons.lock, labelText: 'Enter your password'),
+              SizedBox(height: mediaQueryHeight * .01),
+
+              // This is button to go forget password page
+              TextButton(
+                onPressed: () {
+                  Get.to(() => const ForgotPasswordMethod());
+                },
+                child: const Align(
+                  alignment: Alignment.centerRight,
+                  child: Text(
+                    EcoTexts.welbackForgotPassword,
+                    style: TextStyle(
+                      fontWeight: FontWeight.bold,
+                      fontSize: 15,
+                      color: Colors.blue,
+                    ),
                   ),
                 ),
               ),
-            ),
-            const SizedBox(height: 20),
-            Padding(
-              padding: const EdgeInsets.only(top: 10),
-              child: Image.asset(
-                TImages.ecoIcon,
-                height: 100,
-                width: 100,
-              ),
-            ),
-            const SizedBox(height: 30),
-            SizedBox(
-              width: 385,
-              child: TextFormField(
-                decoration: const InputDecoration(
-                  prefixIcon: Icon(
-                    Icons.email,
+              SizedBox(height: mediaQueryHeight * .01),
+
+              // This is signin button
+              SizedBox(
+                width: mediaQueryWidth * .9,
+                child: ElevatedButton(
+                  onPressed: () {
+                    Get.to(() => const NavigationMenu());
+                  },
+                  child: Text(
+                    EcoTexts.welbackSignIn,
+                    style: Theme.of(context)
+                        .textTheme
+                        .headlineMedium!
+                        .copyWith(color: Colors.white),
                   ),
-                  labelText: 'Enter your email',
-                  )
+                ),
               ),
-            ),
-            const SizedBox(height: 20),
-            SizedBox(
-              width: 385,
-              child: TextFormField(
-                  decoration: const InputDecoration(
-                    prefixIcon: Icon(
-                      Icons.lock,
-                    ),
-                    labelText: 'Enter your password',
-                  )
+              SizedBox(height: mediaQueryHeight * .02),
+
+              // this is form footer
+              // Using signup button goto registration page
+              const Text(
+                EcoTexts.welbackDontHave,
               ),
-            ),
-            const SizedBox(height: 20),
-             TextButton(
+              TextButton(
                 onPressed: () {
-                  Navigator.push(
-                    context,
-                    MaterialPageRoute(builder: (context) => const ForgotPasswordMethod()),
-                  );
+                  Get.to(() => const SignUp());
                 },
                 child: const Text(
-                 ' EcoTexts.welbackForgotPassword',
+                  EcoTexts.welbackSignUp,
                   style: TextStyle(
                       fontWeight: FontWeight.bold,
                       fontSize: 15,
                       color: Colors.blue),
                 ),
-             ),
-            const SizedBox(height: 20),
-            ElevatedButton(
-              onPressed: () {
-                Navigator.push(
-                  context,
-                  MaterialPageRoute(builder: (context) => const NavigationMenu()),
-                );
-              },
-              style: ElevatedButton.styleFrom(
-                minimumSize: const Size(350, 50),
               ),
-              child: const Text(
-                'EcoTexts.welbackSignIn',
-                style: TextStyle(
-                  fontSize: 20,
-                  fontWeight: FontWeight.bold,
-                ),
-              ),
-            ),
-            const SizedBox(height: 20),
-            const Text(
-             ' EcoTexts.welbackDontHave',
-            ),
-            TextButton(
-                onPressed: () {
-                  Navigator.push(
-                    context,
-                    MaterialPageRoute(builder: (context) => const SignUp()),
-                  );
-                },
-                child: const Text(
-                 ' EcoTexts.welbackSignUp',
-                  style: TextStyle(
-                      fontWeight: FontWeight.bold,
-                      fontSize: 15,
-                      color: Colors.blue
-                  ),
-                ),
-            ),
-          ],
+            ],
+          ),
         ),
-      ),
+      )),
     );
   }
 }

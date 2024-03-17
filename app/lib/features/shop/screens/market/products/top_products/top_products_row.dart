@@ -10,15 +10,15 @@ class TopProducts extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Column(
+    return const Column(
       children: [
         Padding(
-          padding: const EdgeInsets.symmetric(horizontal: 15),
+          padding: EdgeInsets.symmetric(horizontal: 15),
           child: Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
               // top products title
-              const Text(
+              Text(
                 'Top Products',
                 style: TextStyle(
                   fontSize: 20,
@@ -26,22 +26,11 @@ class TopProducts extends StatelessWidget {
                 ),
               ),
               // more Productsd
-              InkWell(
-                onTap: () {
-                  Get.to(() => const MarketPage());
-                },
-                child: const Text(
-                  'More Products',
-                  style: TextStyle(
-                    fontSize: 15,
-                    color: TColors.grey,
-                  ),
-                ),
-              ),
+             
             ],
           ),
         ),
-        const TopProductHorisontalRowWidget()
+        TopProductHorisontalRowWidget()
       ],
     );
   }

@@ -4,6 +4,8 @@ import 'package:app/utils/constants/image_strings.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
+import '../../../../../../utils/constants/mediaQuery.dart';
+
 class ProductDetailPage extends StatefulWidget {
   const ProductDetailPage({super.key, required this.productIndex});
   final int productIndex;
@@ -16,8 +18,16 @@ class _ProductDetailPageState extends State<ProductDetailPage> {
   int itemCount = 1;
   @override
   Widget build(BuildContext context) {
-    final mediaqueryWidth = MediaQuery.of(context).size.width;
-    final mediaqueryHeight = MediaQuery.of(context).size.height;
+    final mediaQueryheight = MediaQueryUtils.getHeight(context);
+    final mediaQueryWidth = MediaQueryUtils.getWidth(context);
+    final Brightness brightness = Theme.of(context).brightness;
+
+    Color backgroundColor;
+    if (brightness == Brightness.light) {
+      backgroundColor = Colors.white; // Light mode background color
+    } else {
+      backgroundColor = Colors.black54; // Dark mode background color
+    }
     return Scaffold(
       appBar: AppBar(
         leading: IconButton(
@@ -33,14 +43,14 @@ class _ProductDetailPageState extends State<ProductDetailPage> {
               children: [
                 SizedBox(
                   width: double.infinity,
-                  height: mediaqueryHeight * 0.45,
+                  height: mediaQueryheight * 0.45,
                   child: ListView.builder(
                     scrollDirection: Axis.horizontal,
                     itemCount: 3,
                     itemBuilder: (BuildContext context, int index) {
                       return Container(
-                        width: mediaqueryWidth,
-                        height: mediaqueryHeight * 0.2,
+                        width: mediaQueryWidth,
+                        height: mediaQueryheight * 0.2,
                         decoration: BoxDecoration(
                           borderRadius: BorderRadius.circular(5.0),
                         ),
@@ -64,7 +74,7 @@ class _ProductDetailPageState extends State<ProductDetailPage> {
                             ),
                             Image(
                               image: const AssetImage(TImages.p3),
-                              width: mediaqueryWidth * .5,
+                              width: mediaQueryWidth * .5,
                               fit: BoxFit.contain,
                             ),
                             Text(
@@ -89,7 +99,7 @@ class _ProductDetailPageState extends State<ProductDetailPage> {
                     style: Theme.of(context).textTheme.headlineSmall,
                   ),
                   SizedBox(
-                    height: mediaqueryHeight * .02,
+                    height: mediaQueryheight * .02,
                   ),
                   Row(
                     children: [
@@ -112,11 +122,11 @@ class _ProductDetailPageState extends State<ProductDetailPage> {
                         Row(
                           children: [
                             Container(
-                                width: mediaqueryWidth * .08,
-                                height: mediaqueryWidth * .08,
+                                width: mediaQueryWidth * .08,
+                                height: mediaQueryWidth * .08,
                                 decoration: BoxDecoration(
                                   borderRadius: BorderRadius.circular(5.0),
-                                  color: Colors.white,
+                                  color: backgroundColor,
                                   boxShadow: [
                                     BoxShadow(
                                       color: Colors.grey.withOpacity(0.5),
@@ -142,14 +152,14 @@ class _ProductDetailPageState extends State<ProductDetailPage> {
                                           fontWeight: FontWeight.bold),
                                     ))),
                             SizedBox(
-                              width: mediaqueryWidth * .02,
+                              width: mediaQueryWidth * .02,
                             ),
                             Container(
-                                width: mediaqueryWidth * .08,
-                                height: mediaqueryWidth * .08,
+                                width: mediaQueryWidth * .08,
+                                height: mediaQueryWidth * .08,
                                 decoration: BoxDecoration(
                                   borderRadius: BorderRadius.circular(5.0),
-                                  color: Colors.white,
+                                  color: backgroundColor,
                                   boxShadow: [
                                     BoxShadow(
                                       color: Colors.grey.withOpacity(0.5),
@@ -169,14 +179,14 @@ class _ProductDetailPageState extends State<ProductDetailPage> {
                                           fontWeight: FontWeight.bold),
                                     ))),
                             SizedBox(
-                              width: mediaqueryWidth * .02,
+                              width: mediaQueryWidth * .02,
                             ),
                             Container(
-                                width: mediaqueryWidth * .08,
-                                height: mediaqueryWidth * .08,
+                                width: mediaQueryWidth * .08,
+                                height: mediaQueryWidth * .08,
                                 decoration: BoxDecoration(
                                   borderRadius: BorderRadius.circular(5.0),
-                                  color: Colors.white,
+                                  color: backgroundColor,
                                   boxShadow: [
                                     BoxShadow(
                                       color: Colors.grey.withOpacity(0.5),

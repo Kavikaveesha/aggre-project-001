@@ -18,11 +18,21 @@ class ProductCard extends StatelessWidget {
   Widget build(BuildContext context) {
     final mediaQueryWidth = MediaQuery.of(context).size.width;
     final mediaQueryHeight = MediaQuery.of(context).size.height;
+
+    final Brightness brightness = Theme.of(context).brightness;
+
+    Color backgroundColor;
+    if (brightness == Brightness.light) {
+      backgroundColor = Colors.white; // Light mode background color
+    } else {
+      backgroundColor = Colors.black54; // Dark mode background color
+    }
+
     return Column(
       children: [
         Container(
           decoration: BoxDecoration(
-            color: Colors.white,
+            color: backgroundColor,
             border: Border.all(color: const Color.fromARGB(255, 86, 86, 86)),
           ),
           child: Center(
@@ -55,19 +65,6 @@ class ProductCard extends StatelessWidget {
                       maxLines: 1,
                       overflow: TextOverflow.ellipsis,
                     ),
-                  ],
-                ),
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: [
-                    Text(
-                      '5',
-                      style: Theme.of(context).textTheme.bodyLarge,
-                    ),
-                    const Icon(
-                      Icons.star_rate_outlined,
-                      color: Colors.amber,
-                    )
                   ],
                 ),
                 Padding(

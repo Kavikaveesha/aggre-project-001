@@ -1,4 +1,3 @@
-import 'package:app/features/shop/screens/coomunity/education/expanded_widget.dart';
 import 'package:app/features/shop/screens/notifications/notification_expadable_widget.dart';
 import 'package:flutter/material.dart';
 
@@ -7,10 +6,18 @@ class NotificationCard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final Brightness brightness = Theme.of(context).brightness;
+
+    Color backgroundColor;
+    if (brightness == Brightness.light) {
+      backgroundColor = Colors.white; // Light mode background color
+    } else {
+      backgroundColor = Colors.black54; // Dark mode background color
+    }
     return Container(
       decoration: BoxDecoration(
         borderRadius: BorderRadius.circular(15.0),
-        color: Colors.white,
+        color: backgroundColor,
         boxShadow: [
           BoxShadow(
             color: Colors.grey.withOpacity(0.5),
@@ -32,7 +39,7 @@ class NotificationCard extends StatelessWidget {
             ),
             const NotificationExpandedTextWidget(
                 text:
-                    'This is a notificationThis is a notificationThis is a notificationThis is a notificationThis is a notificationThis is a notificationThis is a notificationThis is a notification',
+                    'This is a notificationThis is a notificationThis is aThis is a notificationThis is a notificationThis is aThis is a notificationThis is a notificationThis is aThis is a notificationThis is a notificationThis is a ',
                 textLength: 100),
           ],
         ),

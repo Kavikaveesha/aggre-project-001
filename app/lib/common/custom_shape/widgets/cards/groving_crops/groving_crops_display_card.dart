@@ -2,20 +2,31 @@ import 'package:flutter/material.dart';
 
 class GrovingCropsDisplayCard extends StatelessWidget {
   const GrovingCropsDisplayCard(
-      {super.key, required this.title, required this.image, required this.onTap});
+      {super.key,
+      required this.title,
+      required this.image,
+      required this.onTap});
   final String title;
   final VoidCallback onTap;
   final String image;
 
   @override
   Widget build(BuildContext context) {
+    final Brightness brightness = Theme.of(context).brightness;
+
+    Color backgroundColor;
+    if (brightness == Brightness.light) {
+      backgroundColor = Colors.white; // Light mode background color
+    } else {
+      backgroundColor = Colors.black54; // Dark mode background color
+    }
     return InkWell(
       onTap: onTap,
       child: Column(
         children: [
           Container(
             decoration: BoxDecoration(
-              color: Colors.white,
+              color: backgroundColor,
               border: Border.all(color: const Color.fromARGB(255, 86, 86, 86)),
             ),
             child: Center(

@@ -4,8 +4,9 @@ import 'package:get/get.dart';
 import 'circular_container.dart';
 
 class CircularDesignContainer extends StatelessWidget {
-  const CircularDesignContainer({super.key, required this.child});
+  const CircularDesignContainer({super.key, required this.child, required this.backText});
   final Widget child;
+  final String backText;
 
   @override
   Widget build(BuildContext context) {
@@ -21,7 +22,7 @@ class CircularDesignContainer extends StatelessWidget {
                 Get.back();
               },
               child:
-                  Text('Back', style: Theme.of(context).textTheme.bodyMedium)),
+                  Text(backText, style: Theme.of(context).textTheme.bodyMedium)),
         ),
         Container(
           child: child,

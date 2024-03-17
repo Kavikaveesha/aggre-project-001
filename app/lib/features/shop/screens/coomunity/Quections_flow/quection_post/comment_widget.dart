@@ -4,13 +4,25 @@ import 'package:get/get.dart';
 import '../../../test.dart';
 
 class CommentWidget extends StatelessWidget {
-  const CommentWidget({super.key, required this.commenterName, required this.comenterImage, required this.comment});
+  const CommentWidget(
+      {super.key,
+      required this.commenterName,
+      required this.comenterImage,
+      required this.comment});
   final String commenterName;
   final String comenterImage;
   final String comment;
 
   @override
   Widget build(BuildContext context) {
+    final Brightness brightness = Theme.of(context).brightness;
+
+    Color backgroundColor;
+    if (brightness == Brightness.light) {
+      backgroundColor = Colors.grey.shade200; // Light mode background color
+    } else {
+      backgroundColor = Colors.black54; // Dark mode background color
+    }
     return Container(
       decoration: BoxDecoration(
         border: Border.all(
@@ -18,7 +30,7 @@ class CommentWidget extends StatelessWidget {
           width: 1.0, // Adjust the border width
         ),
         borderRadius: BorderRadius.circular(8.0), // Adjust the border radius
-        color: Colors.grey[200], // Adjust the background color
+        color: backgroundColor, // Adjust the background color
       ),
       child: Padding(
         padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 5),
@@ -30,7 +42,7 @@ class CommentWidget extends StatelessWidget {
                   onTap: () {
                     Get.to(() => const Test());
                   },
-                  child:  CircleAvatar(
+                  child: CircleAvatar(
                     radius: 24,
                     backgroundImage: AssetImage(comenterImage),
                   ),
